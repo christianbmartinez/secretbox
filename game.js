@@ -8,10 +8,8 @@ let person
 
 window.onload = () => {
     person = prompt('What is your name?', 'Jack')
-
     window.alert(`${person}, find the green box within ${sessionStorage.getItem('difficulty') ? `${sessionStorage.getItem('difficulty')} tries or you'll lose. Good luck!` : 
     '15 tries! Good Luck!'}`)
-
     triesRemaining.innerHTML = sessionStorage.getItem('difficulty') ? `Tries remaining: 0/${sessionStorage.getItem('difficulty')}` : 
     'Tries remaining: 0/15'
 }
@@ -25,7 +23,7 @@ if (!sessionStorage.getItem('difficulty')) {
     sessionStorage.setItem('difficulty', difficulty.value)
 } else {
     sessionStorage.getItem('difficulty')
-    for (i = 0; i < difficulty.children.length; i ++) {
+    for (i = 0; i < difficulty.children.length; i++) {
         if (difficulty.children[i].attributes[0].nodeValue === sessionStorage.getItem('difficulty')) {
             difficulty.children[i].selected = 'selected'
         }
