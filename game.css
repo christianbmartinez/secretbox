@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap');
+
+body {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+}
+
+#difficulty {
+    width: 12em;
+    height: 2em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36em;
+    height: auto;
+    margin: 1rem auto;
+}
+
+#game {
+    width: 36em;
+    height: 36em;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+.box {
+    width: 6em;
+    height: 6em;
+    outline: 1px solid black;
+    cursor: pointer;
+}
