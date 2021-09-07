@@ -5,6 +5,9 @@ const winningBox = game.children[randomBox]
 let numOfClicks = 0
 const difficulty = document.getElementById("difficulty")
 let person
+const pop = new Audio('/audio/pop.mp3')
+const win = new Audio('/audio/win.mp3')
+const lose = new Audio('/audio/lose.mp3')
 
 window.onload = () => {
     person = prompt('What is your name?', 'Jack')
@@ -40,7 +43,9 @@ game.onclick = e => {
 
     if (!userSelection.style.backgroundColor) {
         userSelection.style.setProperty('background-color', 'gray') 
+        pop.play()
         numOfClicks++
+        userSelection.style.setProperty('animation', 'PulseInOut .8s ease-in-out')
         triesRemaining.innerHTML = `Tries remaining: ${numOfClicks}/${difficulty.value}`
     } else if (userSelection.style.backgroundColor === 'gray') {
         numOfClicks = numOfClicks
@@ -48,11 +53,14 @@ game.onclick = e => {
 
     if (userSelectionID === winningBox.id && numOfClicks <= difficulty.value ) {
         winningBox.style.setProperty('background-color', 'green')
+        win.play()
         setTimeout(() => {
-            window.alert(`Congrats ${person}! You win!`)
+            window.alert(`Congrats ${person}! You won!`)
             window.location.reload()
         }, 600)
     } else if (numOfClicks >= difficulty.value) {
+        winningBox.style.setProperty('background-color', 'green')
+        lose.play()
         window.alert(`You lose. Try again ${person}!`)
         setTimeout(() => {
             window.location.reload()
